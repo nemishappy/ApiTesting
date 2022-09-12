@@ -1,11 +1,12 @@
 import * as React from 'react';
 import {Image, View, Text} from 'react-native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import HomeScreen from '../components/HomeScreen';
-import DetailScreen from '../components/DetailScreen';
-import CameraScreen from '../components/CameraScreen';
+import HomeScreen from '../screens/HomeScreen';
+import DisplayScreen from '../screens/DisplayScreen';
+import CameraScreen from '../screens/CameraScreen';
 import styles from '../styles/ApiStyles';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import {getFocusedRouteNameFromRoute} from '@react-navigation/native';
 
 const HomeStack = createNativeStackNavigator();
 
@@ -32,7 +33,16 @@ function LogoTitle() {
   );
 }
 
-function HomeStackScreen({navigation}) {
+function HomeStackScreen({route, navigation}) {
+  React.useLayoutEffect(() => {
+    const routeName = getFocusedRouteNameFromRoute(route);
+    console.log(routeName);
+    if (routeName === 'Camera') {
+      navigation.setOptions({tabBarStyle: {display: 'none'}});
+    } else {
+      navigation.setOptions({tabBarStyle: {display: 'flex'}});
+    }
+  }, [navigation, route]);
   return (
     <HomeStack.Navigator
       screenOptions={{
@@ -59,7 +69,18 @@ function HomeStackScreen({navigation}) {
         options={{
           header: props => (
             <View style={styles.header}>
-              <Text> dsd</Text>
+              <Text>Camera Screen</Text>
+            </View>
+          ),
+        }}
+      />
+      <HomeStack.Screen
+        name="Display"
+        component={DisplayScreen}
+        options={{
+          header: props => (
+            <View style={styles.header}>
+              <Text>Display Screen</Text>
             </View>
           ),
         }}

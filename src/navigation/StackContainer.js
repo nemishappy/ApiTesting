@@ -4,7 +4,7 @@ import {NavigationContainer} from '@react-navigation/native';
 
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import HomeScreen from './HomeStack';
-import SettingsScreen from '../components/SettingsScreen';
+import SettingsScreen from '../screens/SettingsScreen';
 import styles from '../styles/ApiStyles';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Ionicons from 'react-native-vector-icons/Ionicons';
