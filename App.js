@@ -18,7 +18,7 @@ import {
   View,
 } from 'react-native';
 import ApiContainer from './src/screens/ApiContainer';
-import StackContainer from './src/navigation/StackContainer';
+import HomeStack from './src/navigation/HomeStack';
 import axios from 'axios';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
@@ -59,7 +59,7 @@ const App: () => Node = () => {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
-  return <StackContainer />;
+  return <HomeStack />;
 };
 
 const styles = StyleSheet.create({
