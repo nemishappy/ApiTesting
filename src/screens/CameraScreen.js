@@ -10,6 +10,10 @@ function CameraScreen({props, navigation}) {
   const device = devices.back;
   const camera = useRef(null);
   const isFocused = useIsFocused();
+  const routes = navigation.getState()?.routes;
+  const prevRoute = routes[routes.length - 2];
+  console.log('routes: ', routes);
+  console.log('prev route: ', prevRoute);
 
   const takePhoto = async () => {
     const photo = await camera.current.takePhoto({});
@@ -59,6 +63,11 @@ function CameraScreen({props, navigation}) {
       ) : (
         <View>
           <Text>Camera Screen</Text>
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate('Home');
+            }}
+            style={styles.capture}></TouchableOpacity>
         </View>
       )}
     </View>
