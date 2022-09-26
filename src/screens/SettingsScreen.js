@@ -10,4 +10,3 @@ function SettingsScreen({navigation}) {
   );
 }
 export default SettingsScreen;
-
