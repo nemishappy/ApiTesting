@@ -28,8 +28,6 @@ const styles = {
     backgroundColor: '#fff',
   },
   header: {
-    height: Platform.OS === 'ios' ? 100 : 60,
-    paddingTop: Platform.OS === 'ios' ? 44 : 0,
     paddingLeft: 25,
     paddingRight: 25,
     justifyContent: 'space-between',

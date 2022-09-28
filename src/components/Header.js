@@ -1,7 +1,15 @@
 import * as React from 'react';
-import {TouchableOpacity, View, Text, Image} from 'react-native';
+import {
+  TouchableOpacity,
+  View,
+  Text,
+  Image,
+  Platform,
+  Dimensions,
+} from 'react-native';
 import styles from '../styles/ApiStyles';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 function LogoTitle() {
   return (
@@ -26,7 +34,35 @@ function LogoTitle() {
   );
 }
 
-function Header({route, navigation}) {
+function LogoTitle2() {
+  return (
+    <View
+      style={{
+        height: 50,
+        width: 150,
+        position: 'relative',
+        overflow: 'hidden',
+        backgroundColor: 'red',
+        alignItems: 'center',
+      }}>
+      <Image
+        style={{
+          position: 'absolute',
+          left: 0,
+          width: '90%',
+          height: '90%',
+        }}
+        source={require('../assets/logo/nt-eng.png')}
+        resizeMode="contain"
+      />
+    </View>
+  );
+}
+const deviceHeight =
+  Platform.OS === 'ios'
+    ? Dimensions.get('screen').height * 0.12
+    : Dimensions.get('screen').height * 0.09;
+function Header({route, navigation, back}) {
   // const routes = navigation.getState()?.routes;
   // const prevRoute = routes[routes.length - 2];
   console.log(route.name);
@@ -34,9 +70,18 @@ function Header({route, navigation}) {
   // const [route,setRoute] = React.useState();
   // React.useEffect(() => {}, [prevRoute]);
   // console.log(prevRoute);
+  const insets = useSafeAreaInsets();
+  console.log(back);
   return (
-    <View style={styles.header}>
-      {route.name === 'Home' ? (
+    <View
+      style={[
+        styles.header,
+        {
+          height: deviceHeight,
+          paddingTop: insets.top,
+        },
+      ]}>
+      {!back ? (
         <>
           <LogoTitle />
           <View
@@ -53,7 +98,18 @@ function Header({route, navigation}) {
           </View>
         </>
       ) : (
-        <Text>{route.name}</Text>
+        <View
+          style={{
+            flex: 1,
+            flexDirection: 'row',
+            justifyContent: 'flex-start',
+            alignItems: 'center',
+          }}>
+          <TouchableOpacity onPress={() => navigation.goBack()}>
+            <Icon name="chevron-left" size={40} color="#555859" />
+          </TouchableOpacity>
+          <Text style={{fontWeight: 'bold', fontSize: 20}}>{route.name}</Text>
+        </View>
       )}
     </View>
   );

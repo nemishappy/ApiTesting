@@ -2,8 +2,10 @@ import * as React from 'react';
 import {Image, View, Text} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import StoreStack from './StoreStack';
+import ProductStack from './ProductStack';
 import HomeScreen from '../screens/HomeScreen';
-import CameraScreen from '../screens/CameraScreen';
+
 import SettingsScreen from '../screens/SettingsScreen';
 import Header from '../components/Header';
 import styles from '../styles/ApiStyles';
@@ -19,18 +21,9 @@ function HomeStackScreen() {
           header: props => <Header {...props} />,
         }}>
         <HomeStack.Screen name="Home" component={HomeScreen} />
-        <HomeStack.Screen
-          name="Camera"
-          component={CameraScreen}
-          options={{
-            header: props => (
-              <View style={styles.header}>
-                <Text>Camera Screen</Text>
-              </View>
-            ),
-          }}
-        />
         <HomeStack.Screen name="Setting" component={SettingsScreen} />
+        <HomeStack.Screen name="Product" component={ProductStack} />
+        <HomeStack.Screen name="Store" component={StoreStack} />
       </HomeStack.Navigator>
     </NavigationContainer>
   );
