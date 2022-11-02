@@ -33,7 +33,7 @@ const styles = {
     justifyContent: 'space-between',
     alignItems: 'center',
     flexDirection: 'row',
-    backgroundColor: COLORS.Primary,
+    backgroundColor: COLORS.primary,
   },
 };
 export default styles;

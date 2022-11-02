@@ -8,8 +8,6 @@ import HomeScreen from '../screens/HomeScreen';
 
 import SettingsScreen from '../screens/SettingsScreen';
 import Header from '../components/Header';
-import styles from '../styles/ApiStyles';
-import Icon from 'react-native-vector-icons/FontAwesome';
 
 const HomeStack = createNativeStackNavigator();
 

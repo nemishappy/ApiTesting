@@ -14,7 +14,11 @@ function CameraScreen({props, navigation}) {
   const takePhoto = async () => {
     const photo = await camera.current.takePhoto({});
     console.log(photo.path);
-    navigation.push('Display', {path: photo.path});
+    navigation.push('Display', {
+      path: photo.path,
+      height: photo.height,
+      width: photo.width,
+    });
   };
 
   return (
@@ -26,7 +30,7 @@ function CameraScreen({props, navigation}) {
             ref={camera}
             {...props}
             device={device}
-            isActive={true}
+            isActive={isFocused}
             photo={true}
           />
           <View style={styles.container}>
@@ -43,14 +47,25 @@ function CameraScreen({props, navigation}) {
                 });
                 if (result.assets) {
                   console.log(result.assets);
-                  navigation.push('Display', {path: result.assets[0].uri});
+                  navigation.push('Display', {
+                    path: result.assets[0].uri,
+                    height: result.assets[0].height,
+                    width: result.assets[0].width,
+                  });
                 }
               }}
               style={styles.icon}>
               <Icon name="image" size={25}></Icon>
             </TouchableOpacity>
           </View>
-          <View style={styles.bottomContainer}>
+          <View
+            style={{
+              height: 80,
+              flexDirection: 'row',
+              justifyContent: 'center',
+              backgroundColor: 'grey',
+              padding: 20,
+            }}>
             <Text style={{fontSize: 16}}>
               Take a photo / Select photo of product
             </Text>

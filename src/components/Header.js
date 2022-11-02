@@ -18,11 +18,9 @@ function LogoTitle() {
         flex: 3,
         paddingBottom: 6,
         justifyContent: 'flex-start',
-        backgroundColor: 'grey',
       }}>
       <Image
         style={{
-          backgroundColor: 'yellow',
           flex: 1,
           height: '50%',
           width: '50%',
@@ -65,13 +63,11 @@ const deviceHeight =
 function Header({route, navigation, back}) {
   // const routes = navigation.getState()?.routes;
   // const prevRoute = routes[routes.length - 2];
-  console.log(route.name);
 
   // const [route,setRoute] = React.useState();
   // React.useEffect(() => {}, [prevRoute]);
   // console.log(prevRoute);
   const insets = useSafeAreaInsets();
-  console.log(back);
   return (
     <View
       style={[
@@ -106,9 +102,11 @@ function Header({route, navigation, back}) {
             alignItems: 'center',
           }}>
           <TouchableOpacity onPress={() => navigation.goBack()}>
-            <Icon name="chevron-left" size={40} color="#555859" />
+            <Icon name="chevron-left" size={40} color="#1C1B1F" />
           </TouchableOpacity>
-          <Text style={{fontWeight: 'bold', fontSize: 20}}>{route.name}</Text>
+          <Text style={{fontWeight: 'bold', fontSize: 20, marginLeft: 10}}>
+            {route.name}
+          </Text>
         </View>
       )}
     </View>
