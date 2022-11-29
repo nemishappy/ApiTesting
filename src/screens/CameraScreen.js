@@ -18,6 +18,7 @@ function CameraScreen({props, navigation}) {
       path: photo.path,
       height: photo.height,
       width: photo.width,
+      predict: 'store',
     });
   };
 
@@ -44,13 +45,16 @@ function CameraScreen({props, navigation}) {
                   selectionLimit: 1,
                   mediaType: 'photo',
                   includeBase64: false,
+                  includeExtra: false,
                 });
                 if (result.assets) {
                   console.log(result.assets);
+                  let filePath = result.assets[0].uri.substring(7);
                   navigation.push('Display', {
-                    path: result.assets[0].uri,
+                    path: filePath,
                     height: result.assets[0].height,
                     width: result.assets[0].width,
+                    predict: 'store',
                   });
                 }
               }}

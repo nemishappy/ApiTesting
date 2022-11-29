@@ -1,5 +1,13 @@
 import * as React from 'react';
-import {Button, View, Text, StyleSheet, Image, Alert} from 'react-native';
+import {
+  Button,
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  Alert,
+  ActivityIndicator,
+} from 'react-native';
 import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
 import axios from 'axios';
 import RNFS from 'react-native-fs';
@@ -8,56 +16,44 @@ import ImageResizer from 'react-native-image-resizer';
 
 function PreviewScreen({route, navigation}) {
   const [image, setImage] = React.useState(null);
-  const {path, height, width} = route.params;
+  const [spinner, setSpinner] = React.useState(true);
+  const [result, setResult] = React.useState([]);
+  const {path, height, width, predict} = route.params;
   console.log(height, width);
 
   React.useEffect(() => {
     if (path) {
       console.log(path);
-      try {
-        ImageResizer.createResizedImage(
-          path,
-          512,
-          512,
-          'PNG',
-          100,
-          0,
-          undefined,
-          false,
-          {mode: 'stretch', onlyScaleDown: false},
-        )
-          .then(res => {
-            setImage(res);
-            console.log(res);
-            sendImage(res);
-          })
-          .catch(err => {
-            console.log(err);
-          });
-      } catch (error) {
-        console.log(error);
-        Alert.alert('Unable to resize the photo');
-      }
+      setImage({path: path, uri: 'file://' + path});
+      sendImage({path: path, uri: 'file://' + path});
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [path]);
 
   const sendImage = async img => {
     let type = img.uri.substring(img.uri.lastIndexOf('.') + 1);
-    let image = '';
+    let base64 = '';
+    console.log('path: ', img.path);
+    console.log('uri: ', img.uri);
 
     await RNFS.readFile(img.path, 'base64').then(res => {
-      console.log(res);
-      image = 'data:image/png;base64,' + res;
+      base64 = `data:image/${type};base64,` + res;
     });
     await axios
-      .post('http://192.168.100.227:5500/post/test', {image})
+      .post('http://192.168.100.142:5500/post/test', {
+        base64,
+        type: predict,
+        width: width,
+        height: height,
+      })
       .then(response => {
         console.log('postting data from axios', response.data);
+        setResult(response.data.result);
+        setSpinner(false);
       })
       .catch(error => {
         console.log(error);
       });
-    console.log(type);
   };
 
   return (
@@ -69,10 +65,14 @@ function PreviewScreen({route, navigation}) {
       }}>
       <Text>Display Screen</Text>
 
-      {image != null ? (
+      {spinner ? (
         <>
-          <Text>{image.uri}</Text>
-          <View
+          <ActivityIndicator size="large" />
+        </>
+      ) : (
+        <>
+          <Text>{result[0]}</Text>
+          {/* <View
             style={{
               width: 200,
               height: 200,
@@ -87,10 +87,8 @@ function PreviewScreen({route, navigation}) {
               resizeMode="contain"
               source={{uri: image.uri}}
             />
-          </View>
+          </View> */}
         </>
-      ) : (
-        <></>
       )}
       <Button title="Go back" onPress={() => navigation.goBack()} />
     </View>
