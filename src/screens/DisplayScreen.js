@@ -31,6 +31,7 @@ function PreviewScreen({route, navigation}) {
   }, [path]);
 
   const sendImage = async img => {
+    setSpinner(true);
     let type = img.uri.substring(img.uri.lastIndexOf('.') + 1);
     let base64 = '';
     console.log('path: ', img.path);
@@ -63,31 +64,12 @@ function PreviewScreen({route, navigation}) {
         alignItems: 'center',
         justifyContent: 'center',
       }}>
-      <Text>Display Screen</Text>
-
       {spinner ? (
-        <>
-          <ActivityIndicator size="large" />
-        </>
+        <ActivityIndicator size="large" />
       ) : (
         <>
+          <Text>Display Screen</Text>
           <Text>{result[0]}</Text>
-          {/* <View
-            style={{
-              width: 200,
-              height: 200,
-              justifyContent: 'flex-start',
-              backgroundColor: 'grey',
-            }}>
-            <Image
-              style={{
-                backgroundColor: 'yellow',
-                flex: 1,
-              }}
-              resizeMode="contain"
-              source={{uri: image.uri}}
-            />
-          </View> */}
         </>
       )}
       <Button title="Go back" onPress={() => navigation.goBack()} />

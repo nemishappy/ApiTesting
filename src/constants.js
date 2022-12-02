@@ -3,8 +3,9 @@ const {width, height} = Dimensions.get('screen');
 
 export const COLORS = {
   // base colors
-  primary: '#FFD100', // Dark Blue
-  secondary: '#555859', // peach
+  primary: '#FFD100', // light yellow
+  secondary: '#555859', // Very dark grayish cyan
+  primary2: '#FFE985', // lighter yellow
 
   // colors
   black: '#1E1F20',
@@ -36,10 +37,12 @@ export const SIZES = {
   h2: 22,
   h3: 16,
   h4: 14,
+  h5: 12,
   body1: 30,
   body2: 20,
   body3: 16,
   body4: 14,
+  body5: 10,
 
   // app dimensions
   deviceWidth: width,
@@ -52,10 +55,12 @@ export const FONTS = {
   h2: {fontSize: SIZES.h2, lineHeight: 30},
   h3: {fontSize: SIZES.h3, lineHeight: 22},
   h4: {fontSize: SIZES.h4, lineHeight: 22},
+  h5: {fontSize: SIZES.h5, lineHeight: 18},
   body1: {fontSize: SIZES.body1, lineHeight: 36},
   body2: {fontSize: SIZES.body2, lineHeight: 30},
   body3: {fontSize: SIZES.body3, lineHeight: 22},
   body4: {fontSize: SIZES.body4, lineHeight: 22},
+  body5: {fontSize: SIZES.body5, lineHeight: 18},
 };
 
 const appTheme = {COLORS, SIZES, FONTS};

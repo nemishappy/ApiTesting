@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {Button, View, Text, StyleSheet, Image, Alert} from 'react-native';
 import CardBanner from '../components/CardBanner';
+import RenderList from '../components/PromotionsList';
 
 import {FloatingAction} from 'react-native-floating-action';
 
@@ -28,15 +29,54 @@ const actions = [
 ];
 
 function HomeScreen({navigation}) {
-  axios
-    .get('http://192.168.100.227:5500/get/test')
-    .then(response => {
-      console.log('getting data from axios', response.data);
-    })
-    .catch(error => {
-      console.log(error);
-    });
-
+  let mockData = [
+    {
+      x: 1,
+      y: 3,
+      title: 'Vehicle Detection',
+      label: 'Car',
+      icon: '🚙',
+      details: 'Vehicle Detection Using Pelco Camera With Polarized Film',
+      location: 'Building A , Parking Lot 1st floor , Parking Lot 3 rd floor',
+    },
+    {
+      x: 1,
+      y: 4,
+      title: 'Human Detection',
+      label: 'Person',
+      icon: '🙋🏻‍♂️',
+      details: 'Human Detection Including Face Detection ',
+      location: 'Building A , Cafeteria , 2nd Floor , 5th floor',
+    },
+    {
+      x: 1,
+      y: 5,
+      title: 'Overall Detection',
+      label: 'Detect',
+      icon: '📷',
+      details: 'Detect everything in selected area and classified into icons',
+      location: 'Building A',
+    },
+    {
+      x: 1,
+      y: 4,
+      title: 'Emergency Detection',
+      label: 'Fire',
+      icon: '🔥',
+      details: 'Fire and Smoke Detection with smart Alarm function',
+      location: 'Building A',
+    },
+    {
+      x: 1,
+      y: 4,
+      title: 'Emergency Detection',
+      label: 'Man Down',
+      icon: '⚠️',
+      details: 'Use for detect collapse people to get help immedieately',
+      location: 'Building A',
+    },
+    // {x:1,y:3,title:'Available Detection',label:'Cafeteria',icon:'🍴',details:'Looking for non-crowded Shops ',location:'Building A'},
+  ];
   return (
     <View
       style={{
@@ -54,6 +94,13 @@ function HomeScreen({navigation}) {
           />
         </View>
         <Text style={{fontWeight: 'bold', ...FONTS.h1}}>Promotion</Text>
+        <View
+          style={{
+            flex: 1,
+            margin: 20,
+          }}>
+          <RenderList promotions={mockData} />
+        </View>
       </View>
       <FloatingAction
         actions={actions}
