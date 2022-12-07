@@ -2,8 +2,9 @@ import {StyleSheet, Text, View, TouchableOpacity, FlatList} from 'react-native';
 import * as React from 'react';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import FastImage from 'react-native-fast-image';
+import {COLORS} from '../constants';
 
-function CardsList({items, isProduct, navigation}) {
+function CardsList({items, isProduct, isClickable, navigation}) {
   console.log('---data form items---');
   console.log(items);
 
@@ -72,39 +73,78 @@ function CardsList({items, isProduct, navigation}) {
                       <Text style={{fontSize: 18, fontWeight: '500'}}>
                         {item.productName}
                       </Text>
+                      {isClickable ? (
+                        <View
+                          style={{
+                            flexDirection: 'row',
+                          }}>
+                          <Icon
+                            name="store"
+                            size={15}
+                            color="#6D616F"
+                            style={{
+                              paddingRight: 3,
+                            }}
+                          />
+                          <Text
+                            style={{
+                              fontSize: 12,
+                            }}>
+                            {item.store.storeName}
+                          </Text>
+                        </View>
+                      ) : (
+                        <></>
+                      )}
                       <View
                         style={{
                           backgroundColor: '#FA0606',
                           width: 100,
                           flexDirection: 'row',
+                          alignContent: 'center',
                           borderRadius: 3,
                           height: 23,
-                          justifyContent: 'center',
                           padding: 3,
-                          marginTop: 10,
+                          marginTop: 5,
                         }}>
-                        <Icon name="tag-outline" size={15} color="#ffffff" />
+                        <View
+                          style={{
+                            paddingHorizontal: 3,
+                          }}>
+                          <Icon name="tag-outline" size={15} color="#ffffff" />
+                        </View>
                         <Text
                           style={{
                             fontSize: 12,
-                            alignSelf: 'center',
                             fontWeight: '500',
                             color: '#ffffff',
                           }}>
-                          {'  '}
                           {item.PromoProduct.tittle}
                         </Text>
                       </View>
                     </View>
-                    <Text
-                      style={{
-                        fontSize: fontSize(item.PromoProduct.promotionPrice),
-                        fontWeight: '500',
-                        color: '#FA0606',
-                        alignSelf: 'center',
-                      }}>
-                      {showePrice(item.PromoProduct.promotionPrice)}
-                    </Text>
+                    <View>
+                      <Text
+                        style={{
+                          fontSize: fontSize(item.price) - 8,
+                          fontWeight: '500',
+                          color: '#6D616F',
+                          alignSelf: 'flex-end',
+                          textDecorationLine: 'line-through',
+                          textDecorationStyle: 'solid',
+                        }}>
+                        {showePrice(item.price)}
+                      </Text>
+                      <Text
+                        style={{
+                          fontSize: fontSize(item.PromoProduct.promotionPrice),
+                          fontWeight: '500',
+                          color: '#FA0606',
+                          alignSelf: 'center',
+                        }}>
+                        {showePrice(item.PromoProduct.promotionPrice)}
+                      </Text>
+                    </View>
                   </>
                 ) : (
                   <>
@@ -112,6 +152,29 @@ function CardsList({items, isProduct, navigation}) {
                       <Text style={{fontSize: 18, fontWeight: '500'}}>
                         {item.productName}
                       </Text>
+                      {isClickable && item.store ? (
+                        <View
+                          style={{
+                            flexDirection: 'row',
+                          }}>
+                          <Icon
+                            name="store"
+                            size={15}
+                            color="#6D616F"
+                            style={{
+                              paddingRight: 3,
+                            }}
+                          />
+                          <Text
+                            style={{
+                              fontSize: 12,
+                            }}>
+                            {item.store.storeName}
+                          </Text>
+                        </View>
+                      ) : (
+                        <></>
+                      )}
                     </View>
                     <Text
                       style={{
@@ -206,13 +269,31 @@ function CardsList({items, isProduct, navigation}) {
   return (
     <View style={{flex: 1}}>
       {isProduct ? (
-        items.map(item => <ProductList key={item.id} item={item} />)
+        isClickable ? (
+          <FlatList
+            data={items}
+            renderItem={({item}) => {
+              return (
+                <TouchableOpacity
+                  onPress={() => navigation.push('Detail', {id: item.storeId})}>
+                  <ProductList item={item} />
+                </TouchableOpacity>
+              );
+            }}
+            keyExtractor={item => item.id}
+            ListEmptyComponent={myListEmpty}
+            scrollEnabled={false}
+          />
+        ) : (
+          items.map(item => <ProductList key={item.id} item={item} />)
+        )
       ) : (
         <FlatList
           data={items}
           renderItem={({item}) => {
             return (
-              <TouchableOpacity onPress={() => navigation.push('Home')}>
+              <TouchableOpacity
+                onPress={() => navigation.push('Detail', {id: item.id})}>
                 <ProductList item={item} />
               </TouchableOpacity>
             );

@@ -17,7 +17,7 @@ import ImageResizer from 'react-native-image-resizer';
 function PreviewScreen({route, navigation}) {
   const [image, setImage] = React.useState(null);
   const [spinner, setSpinner] = React.useState(true);
-  const [result, setResult] = React.useState([]);
+  const [result, setResult] = React.useState('');
   const {path, height, width, predict} = route.params;
   console.log(height, width);
 
@@ -49,11 +49,20 @@ function PreviewScreen({route, navigation}) {
       })
       .then(response => {
         console.log('postting data from axios', response.data);
-        setResult(response.data.result);
+        if (response.data.success) {
+          // setResult(response.data.result);
+          navigation.navigate('ListProduct', {results: response.data.results});
+        } else {
+          setResult('Fail to detect, please try again.');
+        }
         setSpinner(false);
       })
       .catch(error => {
-        console.log(error);
+        if (error.response) {
+          console.log(error.response.status);
+          setResult('Something went wrong.');
+          setSpinner(false);
+        }
       });
   };
 
@@ -69,10 +78,10 @@ function PreviewScreen({route, navigation}) {
       ) : (
         <>
           <Text>Display Screen</Text>
-          <Text>{result[0]}</Text>
+          <Text>{result}</Text>
         </>
       )}
-      <Button title="Go back" onPress={() => navigation.goBack()} />
+      {/* <Button title="cancel" onPress={() => navigation.goBack()} /> */}
     </View>
   );
 }

@@ -49,17 +49,17 @@ function StoreDetail({navigation, route}) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [sorted]);
   const SortData = (StoreData, sort) => {
-    if (sort == 0) {
+    if (sort === 0) {
       const LowHigh = [...StoreData].sort((a, b) => a.price - b.price);
-      console.log(LowHigh);
+      // console.log(LowHigh);
       return LowHigh;
-    } else if (sort == 1) {
+    } else if (sort === 1) {
       const HighLow = [...StoreData].sort((a, b) => b.price - a.price);
-      console.log(HighLow);
+      // console.log(HighLow);
       return HighLow;
     } else {
       const Promotions = StoreData.filter(StoreData => {
-        return StoreData.promotion == 1;
+        return StoreData.promotion === 1;
       });
       // console.log(HighLow);
       return Promotions;
@@ -140,22 +140,41 @@ function StoreDetail({navigation, route}) {
           elevation: 20,
           shadowColor: '#000',
         }}>
-        <Image
-          source={{uri: store.logoPath}}
-          style={{
-            height: size,
-            borderRadius: size,
-            width: size,
-            marginRight: space / 2,
-            shadowOffset: {
-              width: 0,
-              height: 10,
-            },
-            shadowOpacity: 0.7,
-            shadowRadius: 50,
-            shadowColor: '#000',
-          }}
-        />
+        {store.logoPath ? (
+          <Image
+            source={{uri: store.logoPath}}
+            style={{
+              height: size,
+              borderRadius: size,
+              width: size,
+              marginRight: space / 2,
+              shadowOffset: {
+                width: 0,
+                height: 10,
+              },
+              shadowOpacity: 0.7,
+              shadowRadius: 50,
+              shadowColor: '#000',
+            }}
+          />
+        ) : (
+          <Image
+            source={require('../../assets/logo/store.png')}
+            style={{
+              height: size,
+              borderRadius: size,
+              width: size,
+              marginRight: space / 2,
+              shadowOffset: {
+                width: 0,
+                height: 10,
+              },
+              shadowOpacity: 0.7,
+              shadowRadius: 50,
+              shadowColor: '#000',
+            }}
+          />
+        )}
         <View
           style={{
             flex: 1,
@@ -207,21 +226,28 @@ function StoreDetail({navigation, route}) {
         <View style={{marginVertical: 20}}>
           <CardBanner props={{uri: store.imagePath}} />
         </View>
-        <Text style={{fontWeight: 'bold', ...FONTS.h2}}>Promotion</Text>
-        <View
-          style={{
-            height: 70,
-            width: SLIDER_WIDTH - 40,
-            marginTop: 10,
-          }}>
-          <FlatList
-            data={store.PromoStores}
-            renderItem={PromotionCard}
-            keyExtractor={item => `${item.id}`}
-            horizontal
-            showsHorizontalScrollIndicator={false}
-          />
-        </View>
+        {store.PromoStore ? (
+          <>
+            <Text style={{fontWeight: 'bold', ...FONTS.h2}}>Promotion</Text>
+            <View
+              style={{
+                height: 70,
+                width: SLIDER_WIDTH - 40,
+                marginTop: 10,
+              }}>
+              <FlatList
+                data={store.PromoStores}
+                renderItem={PromotionCard}
+                keyExtractor={item => `${item.id}`}
+                horizontal
+                showsHorizontalScrollIndicator={false}
+              />
+            </View>
+          </>
+        ) : (
+          <></>
+        )}
+        <Text style={{fontWeight: 'bold', ...FONTS.h2}}>Products</Text>
         <View>
           <SelectableChips value={sorted} onSelectedChange={setSorted} />
         </View>

@@ -67,6 +67,7 @@ function Header({route, navigation, back}) {
   // const [route,setRoute] = React.useState();
   // React.useEffect(() => {}, [prevRoute]);
   // console.log(prevRoute);
+  // console.log(back);
   const insets = useSafeAreaInsets();
   return (
     <View

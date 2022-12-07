@@ -5,11 +5,12 @@ import {useIsFocused} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {launchImageLibrary} from 'react-native-image-picker';
 
-function CameraScreen({props, navigation}) {
+function CameraScreen({props, route, navigation}) {
   const devices = useCameraDevices();
   const device = devices.back;
   const camera = useRef(null);
   const isFocused = useIsFocused();
+  const predict = route.params.type;
 
   const takePhoto = async () => {
     const photo = await camera.current.takePhoto({});
@@ -18,7 +19,7 @@ function CameraScreen({props, navigation}) {
       path: photo.path,
       height: photo.height,
       width: photo.width,
-      predict: 'store',
+      predict: predict,
     });
   };
 
@@ -54,7 +55,7 @@ function CameraScreen({props, navigation}) {
                     path: filePath,
                     height: result.assets[0].height,
                     width: result.assets[0].width,
-                    predict: 'store',
+                    predict: predict,
                   });
                 }
               }}

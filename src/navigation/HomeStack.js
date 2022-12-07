@@ -20,8 +20,16 @@ function HomeStackScreen() {
         }}>
         <HomeStack.Screen name="Home" component={HomeScreen} />
         <HomeStack.Screen name="Setting" component={SettingsScreen} />
-        <HomeStack.Screen name="Product" component={ProductStack} />
-        <HomeStack.Screen name="Store" component={StoreStack} />
+        <HomeStack.Screen
+          name="Product"
+          component={ProductStack}
+          options={{headerShown: false}}
+        />
+        <HomeStack.Screen
+          name="Store"
+          component={StoreStack}
+          options={{headerShown: false}}
+        />
       </HomeStack.Navigator>
     </NavigationContainer>
   );
