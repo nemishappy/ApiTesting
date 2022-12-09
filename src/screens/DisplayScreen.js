@@ -18,7 +18,7 @@ function PreviewScreen({route, navigation}) {
   const [image, setImage] = React.useState(null);
   const [spinner, setSpinner] = React.useState(true);
   const [result, setResult] = React.useState('');
-  const {path, height, width, predict} = route.params;
+  const {path, height, width, store, predict} = route.params;
   console.log(height, width);
 
   React.useEffect(() => {
@@ -41,7 +41,7 @@ function PreviewScreen({route, navigation}) {
       base64 = `data:image/${type};base64,` + res;
     });
     await axios
-      .post('http://192.168.100.142:5500/post/test', {
+      .post('http://192.168.8.105:5500/post/test', {
         base64,
         type: predict,
         width: width,
@@ -51,7 +51,16 @@ function PreviewScreen({route, navigation}) {
         console.log('postting data from axios', response.data);
         if (response.data.success) {
           // setResult(response.data.result);
-          navigation.navigate('ListProduct', {results: response.data.results});
+          if (predict === 'product') {
+            navigation.replace('ListProduct', {
+              results: response.data.results,
+            });
+          } else if (predict === 'store') {
+            navigation.replace('NavigationScreen', {
+              store: store,
+              result: response.data.result,
+            });
+          }
         } else {
           setResult('Fail to detect, please try again.');
         }

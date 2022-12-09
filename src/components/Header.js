@@ -108,6 +108,22 @@ function Header({route, navigation, back}) {
           <Text style={{fontWeight: 'bold', fontSize: 20, marginLeft: 10}}>
             {route.name}
           </Text>
+          {route.name === 'NavigationScreen' ? (
+            <View
+              style={{
+                width: '100%',
+                height: '100%',
+                flex: 1,
+                alignItems: 'flex-end',
+                justifyContent: 'center',
+              }}>
+              <TouchableOpacity onPress={() => navigation.navigate('Home')}>
+                <Icon name="home-outline" size={35} color="#555859" />
+              </TouchableOpacity>
+            </View>
+          ) : (
+            <></>
+          )}
         </View>
       )}
     </View>

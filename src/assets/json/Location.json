@@ -1,0 +1,180 @@
+{
+    "location":[
+        
+        {
+            "point": "thankyou",
+            "x":104.9,"y":729.51,
+            "connect":["p7","mrdiy"],
+            "dashX":104.9,"dashY":739.51
+        },
+        {
+            "point": "mrdiy","x":235.1,"y":729.51,
+            "connect":["thankyou","p1"],
+            "dashX":235.1,"dashY":749.51
+        },
+        {
+            "point":"vida","x":104.9,"y":483.54,
+            "connect":["echo","iccomputer"],
+            "dashX":84.9,"dashY":483.54
+        },
+        {
+            "point":"iccomputer","x":104.9,"y":571.26,
+            "connect":["vida","p7"],
+            "dashX":84.9,"dashY":571.26
+        },
+        {
+            "point": "echo","x":104.9,"y":413.28,
+            "connect":["banana1","vida"],
+            "dashX":84.9,"dashY":413.28
+        },
+        {
+            "point":"yongxin","x":104.9,"y":191.04,
+            "connect":["p3","p2"],
+            "dashX":84.9,"dashY":191.04
+        },
+        {
+            "point":"cliniccom","x":104.9,"y":161.61,
+            "connect":["extraink","p3"],
+            "dashX":84.9,"dashY":161.61
+        },
+        {
+            "point":"extraink","x":104.9,"y":103.47,
+            "connect":["p6","cliniccom"],
+            "dashX":84.9,"dashY":103.47
+        },
+        {
+            "point":"nsp","x":177.49,"y":79.64,
+            "connect":["p6","MZ"],
+            "dashX":177.49,"dashY":79.64
+        },
+        
+        {
+            "point":"mezzo","x":243.64,"y":148.02,
+            "connect":["p4","p5"],
+            "dashX":243.64,"dashY":148.02
+        },
+        {
+            "point":"mz","x":277.7,"y":79.64,
+            "connect":["p5","nsp"],
+            "dashX":277.7,"dashY":79.64
+        },
+        
+        {
+            "point":"horit","x":258.5,"y":174.88,
+            "connect":["24ink","p4"],
+            "dashX":238.5,"dashY":184.88
+        },
+        
+        {
+            "point":"itcity","x":258.5,"y":338.78,
+            "connect":["inksave","wk"],
+            "dashX":242.5,"dashY":338.78
+        },
+        {
+            "point":"banana1","x":104.9,"y":405.65,
+            "connect":["echo","p2","k2phone"],
+            "dashX":124.9,"dashY":385.65
+        },
+       
+        {
+            "point":"24ink","x":258.5,"y":243.9,
+            "connect":["horit","kp"],
+            "dashX":270.5,"dashY":243.9  
+        },                                                                                                             
+        {
+            "point":"kp","x":258.5,"y":263.16,
+            "connect":["24ink","powerit"],
+            "dashX":270.5,"dashY":263.16  
+        },
+        {
+            "point":"powerit","x":258.5,"y":289.48,
+            "connect":["kp","p2","inksave"],
+            "dashX":270.5,"dashY":289.48  
+        },
+        {
+            "point":"inksave","x":258.5,"y":319.29,
+            "connect":["powerit","itcity"],
+            "dashX":270.5,"dashY":319.29  
+        },
+        {
+            "point":"wk","x":258.5,"y":350.25,
+            "connect":["itcity","clinicprinter"],
+            "dashX":270.5,"dashY":350.25  
+        },
+        {
+            "point":"clinicprinter","x":258.5,"y":378.28,
+            "connect":["wk","k2phone"],
+            "dashX":270.5,"dashY":378.28 
+        },
+        {
+            "point":"k2phone","x":258.5,"y":405.65,
+            "connect":["clinicprinter","banana1","banana2"],
+            "dashX":270.5,"dashY":405.65  
+        },
+        {
+            "point":"banana2","x":258.5,"y":444.66,
+            "connect":["k2phone","true"],
+            "dashX":270.5,"dashY":444.66 
+        },
+        {
+            "point":"true","x":258.5,"y":473.1,
+            "connect":["banana2","jib"],
+            "dashX":270.5,"dashY":473.1 
+        },
+        {
+            "point":"jib","x":258.5,"y":532.14,
+            "connect":["true","asus"],
+            "dashX":270.5,"dashY":532.14  
+        },
+        {
+            "point": "ghbank","x": 258.5,"y": 634.2,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
+            "connect":["zakin","ngmobile","p7"],
+            "dashX":270.5,"dashY":634.2  
+        },
+        {
+            "point":"zakin","x":258.5,"y":676.47,
+            "connect":["ghbank","p1"],
+            "dashX":270.5,"dashY":676.47  
+        },
+        {
+            "point":"ngmobile","x": 258.5,"y": 608.64,
+            "connect":["ghbank","asus"],
+            "dashX":270.5,"dashY":608.64  
+        },
+        {
+            "point":"asus","x":258.5,"y":590.15,
+            "connect":["jib","ngmobile"],
+            "dashX":270.5,"dashY":590.15  
+        },
+        
+        {
+            "point": "p1","x":258.5, "y":729.51,
+            "connect":["mrdiy","zakin"]
+        }, 
+        {
+            "point": "p2","x":104.9,"y":289.48,
+            "connect":["powerit","banana1","yongxin"]
+        },
+        {
+            "point": "p3","x":104.9,"y":174.88,
+            "connect":["yongxin","cliniccom","p4"]
+        },
+        {
+            "point": "p4","x":243.64, "y":174.88,
+            "connect":["mezzo","p3","horit"]
+        },
+        {
+            "point": "p5","x":277.7, "y":148.02,
+            "connect":["mezzo","mz"]
+        },
+        {
+            "point":"p6","x":104.9,"y":79.64,
+            "connect":["extraink","nsp"]
+        },
+        {
+            "point":"p7","x":104.9,"y":634.2,
+            "connect":["thankyou","ghbank","iccomputer"]
+        }
+    ]
+}
+

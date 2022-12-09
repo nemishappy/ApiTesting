@@ -1,0 +1,261 @@
+[
+    {
+        "storeId": 1,
+        "storeName": "Thank You",
+        "point": "thankyou",
+        "x":104.9, "y":729.51,
+        "connect":{"mrdiy":130.2,"p7":95.31},
+        "dashX":104.9,"dashY":739.51
+    },
+    {
+        "storeId": 2,
+        "storeName": "MR.DIY",
+        "point": "mrdiy",
+        "x":235.1, "y":729.51,
+        "connect": {"thankyou":130.2,"p1":23.4},
+        "dashX":235.1,"dashY":749.51
+    },
+    {
+        "storeId": 3,
+        "storeName": "Zakin Master",
+        "point":"zakin",
+        "x":258.5, "y":676.47,
+        "connect":{"ghbank":42.27,"p1":53.04},
+        "dashX":270.5,"dashY":676.47 
+    },
+    {
+        "storeId": 4,
+        "storeName": "GH Bank",
+        "point": "ghbank",
+        "x": 258.5, "y": 634.2,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
+        "connect":{"zakin":42.27,"ngmobile":25.56,"p7":153.6},
+        "dashX":270.5,"dashY":634.2
+    },
+    {
+        "storeId": 5,
+        "storeName": "N.G Mobile",
+        "point":"ngmobile",
+        "x": 258.5,"y": 608.64,
+        "connect":{"ghbank":25.56,"asus":18.49},
+        "dashX":270.5,"dashY":608.64 
+    },
+    {
+        "storeId": 6,
+        "storeName": "ASUS",
+        "point":"asus",
+        "x":258.5,"y":590.15,
+        "connect":{"ngmobile":18.49,"jib":58.01},
+        "dashX":270.5,"dashY":590.15 
+    },
+    {
+        "storeId": 7,
+        "storeName": "JIB",
+        "point":"jib",
+        "x":258.5,"y":532.14,
+        "connect":{"asus":58.01,"true":59.04},
+        "dashX":270.5,"dashY":532.14  
+    },
+    {
+        "storeId": 8,
+        "storeName": "True",
+        "point":"true",
+        "x":258.5,"y":473.1,
+        "connect":{"jib":59.04,"banana2":28.44},
+        "dashX":270.5,"dashY":473.1
+    },
+    {
+        "storeId": 9,
+        "storeName": "BaNANA",
+        "point":"banana1",
+        "x":104.9,"y":405.65,
+        "connect":{"k2phone":153.6,"echo":7.63,"p2":116.17},
+        "dashX":124.9,"dashY":385.65
+    },
+    {
+        "storeId": 10,
+        "storeName": "K2 Phone",
+        "point":"k2phone",
+        "x":258.5,"y":405.65,
+        "connect":{"banana2":39.01,"clinicprinter":27.37,"banana1":153.6},
+        "dashX":270.5,"dashY":405.65 
+    },
+    {
+        "storeId": 11,
+        "storeName": "Clinic Printer", 
+        "point":"clinicprinter",
+        "x":258.5,"y":378.28,
+        "connect": {"k2phone":27.37,"wk":28.03},
+        "dashX":270.5,"dashY":378.28 
+    },
+    {
+        "storeId": 12,
+        "storeName": "WK Vgo IT",
+        "point":"wk",
+        "x":258.5,"y":350.25,
+        "connect":{"clinicprinter":28.03,"itcity":11.47},
+        "dashX":270.5,"dashY":350.25 
+    },
+    {
+        "storeId": 13,
+        "storeName": "Ink Save",
+        "point":"inksave",
+        "x":258.5,"y":319.29,
+        "connect":{"powerit":29.81,"itcity":19.49},
+        "dashX":270.5,"dashY":319.29 
+    },
+    {
+        "storeId": 14,
+        "storeName": "Power IT",
+        "point":"powerit",
+        "x":258.5,"y":289.48,
+        "connect":{"inksave":29.81,"kp":26.32,"p2":153.6},
+        "dashX":270.5,"dashY":289.48 
+    },
+    {
+        "storeId": 15,
+        "storeName": "K.P. Advance",
+        "point":"kp",
+        "x":258.5,"y":263.16,
+        "connect":{"powerit":26.32,"24ink":19.26},
+        "dashX":270.5,"dashY":263.16 
+    },
+    {
+        "storeId": 16,
+        "storeName": "24 INK",
+        "point":"24ink",
+        "x":258.5,"y":243.9,
+        "connect":{"kp":19.26,"horit":69.02 },
+        "dashX":270.5,"dashY":243.9
+    },
+    {
+        "storeId": 17,
+        "storeName": "mezzo",
+        "point":"mezzo",
+        "x":243.64,"y":148.02,
+        "connect": {"p4":26.86,"p5":34.06},
+        "dashX":243.64,"dashY":148.02
+    },
+    {
+        "storeId": 18,
+        "storeName": "MZ",  
+        "point":"mz",
+        "x":277.7,"y":79.64,
+        "connect":{"nsp":100.21,"p5":68.38},
+        "dashX":277.7,"dashY":79.64  
+    },
+    {
+        "storeId": 19,
+        "storeName": "NSP Furniture",
+        "point":"nsp",
+        "x":177.49,"y":79.64,
+        "connect":{"mz":100.21,"p6":72.59},
+        "dashX":177.49,"dashY":79.64
+    },
+    {
+        "storeId": 20,
+        "storeName": "Extra INK",
+        "point":"extraink",
+        "x":104.9,"y":103.47,
+        "connect":{"cliniccom":58.14,"p6":23.83},
+        "dashX":84.9,"dashY":103.47
+    },
+    {
+        "storeId": 21,
+        "storeName": "Clinic Com",
+        "point":"cliniccom",
+        "x":104.9,"y":161.61,
+        "connect":{"extraink":58.14,"p3":13.27},
+        "dashX":84.9,"dashY":161.61
+    },
+    {
+        "storeId": 22,
+        "storeName": "Yong Xin Accessory", 
+        "point":"yongxin", 
+        "x":104.9,"y":191.04,
+        "connect":{"p2":98.44,"p3":16.16},
+        "dashX":84.9,"dashY":191.04 
+    },
+    {
+        "storeId": 23,
+        "storeName": "echo",
+        "point": "echo",
+        "x":104.9,"y":413.28,
+        "connect":{"vida":70.26,"banana1":7.63},
+        "dashX":84.9,"dashY":413.28
+    },
+    {
+        "storeId": 24,
+        "storeName": "VIDA",
+        "point":"vida",
+        "x":104.9,"y":483.54,
+        "connect":{"echo":70.26,"iccomputer":87.72},
+        "dashX":84.9,"dashY":483.54
+    },
+    {
+        "storeId": 25,
+        "storeName": "I.C. Computer",
+        "point":"iccomputer",
+        "x":104.9,"y":571.26,
+        "connect": {"vida":87.72,"p7":62.94},
+        "dashX":84.9,"dashY":571.26
+    },
+    {
+        "storeId": 26,
+        "storeName": "BaNANA", 
+        "point":"banana2",
+        "x":258.5,"y":444.66,
+        "connect":{"true":28.44,"k2phone":39.01},
+        "dashX":270.5,"dashY":444.66   
+    },
+    {
+        "storeId": 27,
+        "storeName": "IT City",
+        "point":"itcity",
+        "x":258.5,"y":338.78,
+        "connect":{"wk":11.47,"inksave":19.49},
+        "dashX":242.5,"dashY":338.78
+    },
+    {
+        "storeId": 28,
+        "storeName": "Hor IT", 
+        "point":"horit",
+        "x":258.5,"y":174.88,
+        "connect":{"24ink":69.02,"p4":14.86},
+        "dashX":238.5,"dashY":184.88
+    },
+    {
+        "storeId": 29,
+        "point": "p1","x":258.5, "y":729.51,
+        "connect":{"mrdiy":23.4,"zakin":53.04}
+    }, 
+    {
+        "storeId": 30,
+        "point": "p2","x":104.9,"y":289.48,
+        "connect":{"powerit":153.6,"yongxin":98.44,"banana1":116.17}
+    },
+    {
+        "storeId": 31,
+        "point": "p3","x":104.9,"y":174.88,
+        "connect":{"cliniccom":13.27,"yongxin":16.16,"p4":138.74}
+    },
+    {
+        "storeId": 32,
+        "point": "p4","x":243.64, "y":174.88,
+        "connect":{"mezzo":26.86,"horit":14.86,"p3":138.74}
+    },
+    {
+        "storeId": 33,
+        "point": "p5","x":277.7, "y":148.02,
+        "connect":{"mezzo":34.06,"mz":68.38}
+    },
+    {
+        "storeId": 34,
+        "point":"p6","x":104.9,"y":79.64,
+        "connect":{"nsp":72.59,"extraink":23.83}
+    },
+    {
+        "storeId": 35,
+        "point":"p7","x":104.9,"y":634.2,
+        "connect":{"thankyou":95.31,"ghbank":153.6,"iccomputer":62.94}
+    }
+]

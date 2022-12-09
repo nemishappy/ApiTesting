@@ -25,7 +25,7 @@ function SearchScreen({navigation}) {
   const searchStores = async text => {
     console.log(text);
     await axios
-      .get('http://192.168.100.142:5500/store/search', {
+      .get('http://192.168.8.105:5500/store/search', {
         params: {query: text},
       })
       .then(function (response) {

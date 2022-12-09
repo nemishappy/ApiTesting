@@ -36,7 +36,7 @@ function RenderList({promotions}) {
             alignItems: 'center',
             justifyContent: 'center',
           }}>
-          <Text>Promotion</Text>
+          <Text>Promotion {index}</Text>
           {/* <Image
             source={require('../assets/images/Product1.png')}
             resizeMode="contain"

@@ -25,7 +25,7 @@ function StoreDetail({navigation, route}) {
     if (id) {
       console.log(id);
       axios
-        .get('http://192.168.100.142:5500/store/get', {
+        .get('http://192.168.8.105:5500/store/get', {
           params: {
             id: id,
           },
@@ -206,7 +206,16 @@ function StoreDetail({navigation, route}) {
               shadowOpacity: 0.5,
               shadowRadius: 1,
               shadowColor: '#000',
-            }}>
+            }}
+            onPress={() =>
+              navigation.navigate('NavigationScreen', {
+                store: {
+                  storeId: store.id,
+                  storeName: store.storeName,
+                  logoPath: store.logoPath,
+                },
+              })
+            }>
             <Text style={{fontWeight: 'bold'}}>View Map</Text>
             <Icon
               name="map-marker-radius-outline"
@@ -226,7 +235,8 @@ function StoreDetail({navigation, route}) {
         <View style={{marginVertical: 20}}>
           <CardBanner props={{uri: store.imagePath}} />
         </View>
-        {store.PromoStore ? (
+        {typeof store.PromoStores !== 'undefined' &&
+        store.PromoStores.length > 0 ? (
           <>
             <Text style={{fontWeight: 'bold', ...FONTS.h2}}>Promotion</Text>
             <View

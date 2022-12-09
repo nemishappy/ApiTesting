@@ -11,6 +11,7 @@ function CameraScreen({props, route, navigation}) {
   const camera = useRef(null);
   const isFocused = useIsFocused();
   const predict = route.params.type;
+  const store = route.params.store;
 
   const takePhoto = async () => {
     const photo = await camera.current.takePhoto({});
@@ -19,6 +20,7 @@ function CameraScreen({props, route, navigation}) {
       path: photo.path,
       height: photo.height,
       width: photo.width,
+      store: store,
       predict: predict,
     });
   };
@@ -55,6 +57,7 @@ function CameraScreen({props, route, navigation}) {
                     path: filePath,
                     height: result.assets[0].height,
                     width: result.assets[0].width,
+                    store: store,
                     predict: predict,
                   });
                 }
@@ -79,6 +82,12 @@ function CameraScreen({props, route, navigation}) {
       ) : (
         <View>
           <Text>Camera Screen</Text>
+          <TouchableOpacity
+            onPress={() =>
+              navigation.navigate('NavigationScreen', {store: store})
+            }>
+            <Text>test</Text>
+          </TouchableOpacity>
         </View>
       )}
     </View>
