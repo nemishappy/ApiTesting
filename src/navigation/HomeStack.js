@@ -3,7 +3,8 @@ import {Image, View, Text} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import StoreStack from './StoreStack';
-import ProductStack from './ProductStack';
+import ProductCameraStack from './ProductCameraStack';
+import ProductTextStack from './ProductTextStack';
 import HomeScreen from '../screens/HomeScreen';
 
 import SettingsScreen from '../screens/SettingsScreen';
@@ -21,13 +22,18 @@ function HomeStackScreen() {
         <HomeStack.Screen name="Home" component={HomeScreen} />
         <HomeStack.Screen name="Setting" component={SettingsScreen} />
         <HomeStack.Screen
-          name="Product"
-          component={ProductStack}
+          name="ProductCamera"
+          component={ProductCameraStack}
           options={{headerShown: false}}
         />
         <HomeStack.Screen
           name="Store"
           component={StoreStack}
+          options={{headerShown: false}}
+        />
+        <HomeStack.Screen
+          name="ProductText"
+          component={ProductTextStack}
           options={{headerShown: false}}
         />
       </HomeStack.Navigator>

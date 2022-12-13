@@ -11,9 +11,9 @@ import axios from 'axios';
 
 const actions = [
   {
-    text: 'Product Search',
-    icon: <Icon name="shopping-search" size={30} color={COLORS.secondary} />,
-    name: 'Product',
+    text: 'Search Product with Image',
+    icon: <Icon name="image-search" size={30} color={COLORS.secondary} />,
+    name: 'ProductCamera',
     color: COLORS.primary,
     buttonSize: 50,
     position: 1,
@@ -25,6 +25,14 @@ const actions = [
     color: COLORS.primary,
     buttonSize: 50,
     position: 2,
+  },
+  {
+    text: 'Search Product',
+    icon: <Icon name="shopping-search" size={30} color={COLORS.secondary} />,
+    name: 'ProductText',
+    color: COLORS.primary,
+    buttonSize: 50,
+    position: 3,
   },
 ];
 

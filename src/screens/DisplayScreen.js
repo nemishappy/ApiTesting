@@ -52,8 +52,9 @@ function PreviewScreen({route, navigation}) {
         if (response.data.success) {
           // setResult(response.data.result);
           if (predict === 'product') {
-            navigation.replace('ListProduct', {
+            navigation.push('ListProduct', {
               results: response.data.results,
+              labels: response.data.labels,
             });
           } else if (predict === 'store') {
             navigation.replace('NavigationScreen', {

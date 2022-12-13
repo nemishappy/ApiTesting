@@ -17,9 +17,7 @@ import {
   useColorScheme,
   View,
 } from 'react-native';
-import ApiContainer from './src/screens/ApiContainer';
 import HomeStack from './src/navigation/HomeStack';
-import axios from 'axios';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 

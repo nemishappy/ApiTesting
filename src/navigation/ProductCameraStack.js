@@ -2,24 +2,28 @@ import * as React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import CameraScreen from '../screens/CameraScreen';
 import DisplayScreen from '../screens/DisplayScreen';
-import SearchScreen from '../screens/store/SearchScreen';
+import ListScreen from '../screens/product/ListScreen';
+import Header from '../components/Header';
 import StoreDetail from '../screens/store/StoreDetail';
 import NavigationScreen from '../screens/mapping/NavigationScreen';
-import Header from '../components/Header';
 const Stack = createNativeStackNavigator();
 
-function StoreStack() {
+function ProductCameraStack() {
   return (
     <Stack.Navigator
       screenOptions={{
         header: props => <Header {...props} />,
       }}>
-      <Stack.Screen name="Search" component={SearchScreen} />
+      <Stack.Screen
+        name="CameraScreen"
+        component={CameraScreen}
+        initialParams={{type: 'product'}}
+      />
+      <Stack.Screen name="Display" component={DisplayScreen} />
+      <Stack.Screen name="ListProduct" component={ListScreen} />
       <Stack.Screen name="Detail" component={StoreDetail} />
       <Stack.Screen name="NavigationScreen" component={NavigationScreen} />
-      <Stack.Screen name="CameraScreen" component={CameraScreen} />
-      <Stack.Screen name="Display" component={DisplayScreen} />
     </Stack.Navigator>
   );
 }
-export default StoreStack;
+export default ProductCameraStack;

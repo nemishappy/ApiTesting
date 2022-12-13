@@ -1,9 +1,6 @@
 import ImageZoom from 'react-native-image-pan-zoom';
-import SVGMap from '../assets/map/MapFlip.svg';
-import Entypo from 'react-native-vector-icons/Entypo';
+import SVGMap from '../../assets/map/MapFlip.svg';
 import Svg, {Path, Circle} from 'react-native-svg';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import React, {useState, useEffect} from 'react';
 import {
@@ -14,13 +11,12 @@ import {
   Text,
   TouchableOpacity,
 } from 'react-native';
-import bestPath from '../components/FindPath';
-import Usericon from '../assets/map/icon_user.svg';
-import Shopicon from '../assets/map/icon_shope.svg';
+import bestPath from '../../components/FindPath';
+import Usericon from '../../assets/map/icon_user.svg';
+import Shopicon from '../../assets/map/icon_shope.svg';
 import {useNavigation} from '@react-navigation/native';
-import {POSITION} from './PositionXY';
-import {COLORS} from '../constants';
-import MapPoint from '../assets/json/MapPoint.json';
+import {COLORS} from '../../constants';
+import MapPoint from '../../assets/json/MapPoint.json';
 import FastImage from 'react-native-fast-image';
 
 const NavigationScreen = ({route}) => {
@@ -29,7 +25,10 @@ const NavigationScreen = ({route}) => {
   console.log(' receiving date ', store.storeId);
   console.log(' receiving date ', store);
 
-  const location = 'Banana';
+  const POSITION = {
+    X: 0,
+    Y: 350.25,
+  };
   const size = 50;
   const space = 20;
 
@@ -222,7 +221,7 @@ const NavigationScreen = ({route}) => {
               />
             ) : (
               <FastImage
-                source={require('../assets/logo/store.png')}
+                source={require('../../assets/logo/store.png')}
                 style={{
                   height: size,
                   borderRadius: 5,
